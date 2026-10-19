@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- Define o documento como HTML5. -->
+
+<html lang="pt-BR">
+<!-- Define o idioma da aplicação. -->
+
+<head>
+    <!-- Configurações da página. -->
+
+    <meta charset="UTF-8">
+    <!-- Permite utilizar acentos corretamente. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adapta a aplicação a diferentes tamanhos de tela. -->
+
+    <title>Radar Urbano | Prefeitura</title>
+    <!-- Título da página. -->
+
+    <!-- Arquivo CSS da aplicação. -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Estilos da biblioteca de mapas Leaflet. -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body>
+    <!-- Menu lateral da aplicação. -->
+    <aside class="sidebar" id="sidebar">
+
+        <a class="brand" href="#inicio" aria-label="Radar Urbano - início">
+            <span class="brand-pin" aria-hidden="true">●</span>
+
+            <span>
+                <strong>Radar<br>Urbano</strong>
+                <small>Conectando cidade e cidadão</small>
+            </span>
+        </a>
+
+        <!-- Navegação entre as sete telas. -->
+        <nav class="nav" aria-label="Navegação principal">
+
+            <button type="button" class="nav-link active"
+                data-screen="inicio" aria-current="page">
+                ⌂ <span>Início</span>
+            </button>
+
+            <button type="button" class="nav-link" data-screen="mapa">
+                ◈ <span>Mapa de Calor</span>
+            </button>
+
+            <button type="button" class="nav-link" data-screen="ocorrencias">
+                ▤ <span>Ocorrências</span>
+            </button>
+
+            <button type="button" class="nav-link" data-screen="manutencoes">
+                🔧 <span>Manutenções</span>
+            </button>
+
+            <button type="button" class="nav-link" data-screen="relatorios">
+                ▧ <span>Relatórios</span>
+            </button>
+
+            <button type="button" class="nav-link" data-screen="analises">
+                ▥ <span>Análises</span>
+            </button>
+
+            <button type="button" class="nav-link" data-screen="configuracoes">
+                ⚙ <span>Configurações</span>
+            </button>
+
+        </nav>
+
+        <!-- Elementos decorativos. -->
+        <div class="city-art" aria-hidden="true">♙ ▥ ♙ ▥ ♙ ▥ ♙</div>
+
+        <!-- Rodapé do menu lateral. -->
+        <footer class="city-footer">
+            <strong>♜ Prefeitura Municipal</strong>
+            <small>Juntos por uma cidade melhor</small>
+        </footer>
+
+    </aside>
+
+    <!-- Área principal da aplicação. -->
+    <main class="main-area">
+
+        <!-- Cabeçalho superior. -->
+        <header class="topbar">
+
+            <button
+                type="button"
+                class="icon-button mobile-menu"
+                id="menuToggle"
+                aria-label="Abrir menu"
+                aria-controls="sidebar"
+                aria-expanded="false"
+            >☰</button>
+
+            <!-- Pesquisa geral. -->
+            <label class="search">
+                <span aria-hidden="true">⌕</span>
+
+                <input
+                    type="search"
+                    id="globalSearch"
+                    placeholder="Buscar por endereço, bairro ou ocorrência..."
+                    autocomplete="off"
+                    aria-label="Buscar endereço, bairro ou ocorrência"
+                >
+            </label>
+
+            <!-- Ações do cabeçalho. -->
+            <div class="top-actions">
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    id="notificationButton"
+                    title="Notificações"
+                    aria-label="Abrir notificações"
+                >♧<sup>3</sup></button>
+
+                <button
+                    type="button"
+                    class="profile"
+                    id="profileButton"
+                    aria-label="Abrir perfil do administrador"
+                >
+                    <span class="avatar-small" aria-hidden="true">●</span>
+
+                    <span>
+                        Prefeitura<br>
+                        <small>Administrador</small>
+                    </span>
+
+                    <span aria-hidden="true">⌄</span>
+                </button>
+
+            </div>
+        </header>
+
+        <!-- O JavaScript coloca as telas neste elemento. -->
+        <section
+            id="appContent"
+            class="content"
+            aria-live="polite"
+        ></section>
+
+        <!-- Área de mensagens do sistema. -->
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    </main>
+
+    <!-- Biblioteca necessária para os mapas. -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Biblioteca necessária para os gráficos. -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Código JavaScript da aplicação. -->
+    <script src="./app.js"></script>
+
+</body>
+</html>
